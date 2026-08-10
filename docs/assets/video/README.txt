@@ -1,24 +1,17 @@
-VIDEO SETUP
+PEAR-SEED VIDEO
 
-1. Rename your file:
+Place your video in this folder.
 
-   IROS26_3633_VI_i (1).mp4
+Rename:
 
-   to:
+IROS26_3633_VI_i (1).mp4
 
-   IROS26_3633_VI_i.mp4
+to:
 
-2. Upload it to:
+IROS26_3633_VI_i.mp4
 
-   docs/assets/video/IROS26_3633_VI_i.mp4
+The final path must be:
 
-3. The provided index.html already points to that path.
+docs/assets/video/IROS26_3633_VI_i.mp4
 
-Expected structure:
-
-docs/
-├── index.html
-├── style.css
-└── assets/
-    └── video/
-        └── IROS26_3633_VI_i.mp4
+The index.html file already loads the video from that path.

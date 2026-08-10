@@ -1,243 +1,233 @@
-:root {
-  --background: #ffffff;
-  --text: #222222;
-  --muted: #666666;
-  --light-muted: #858585;
-  --accent: #39734d;
-  --line: #e6e6e6;
-  --button-bg: #f5f5f5;
-  --button-border: #dddddd;
-  --page-width: 980px;
-}
+/*
+ * PEAR & SEED project page
+ *
+ * Visual language intentionally follows the Beacon3D / Nerfies
+ * academic project-page template:
+ *   - Noto Sans body
+ *   - Google Sans publication title/authors
+ *   - Bulma blue accent for authors
+ *   - Bulma dark rounded buttons
+ *   - white background / restrained academic layout
+ */
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 
 body {
-  margin: 0;
-  background: var(--background);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Noto Sans', sans-serif;
 }
 
-.page {
-  width: min(calc(100% - 36px), var(--page-width));
-  margin: 0 auto;
+
+/* ------------------------------------------------------------
+   PAPER HEADER
+   ------------------------------------------------------------ */
+
+.publication-header .hero-body {
+  padding-bottom: 2rem;
 }
 
-.hero {
-  padding: 72px 0 58px;
-  text-align: center;
-}
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
 
-h1 {
+  /*
+   * Beacon3D uses Bulma's title/is-3 sizing.
+   * We keep the same treatment but constrain the width slightly
+   * because our title is long.
+   */
   max-width: 950px;
-  margin: 0 auto;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.15rem, 5vw, 3.65rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-h1 span {
-  display: block;
-  margin-top: 9px;
-  font-size: 0.67em;
-  font-weight: 500;
-  line-height: 1.22;
+.publication-venue {
+  font-family: 'Google Sans', sans-serif;
+  color: #363636;
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem !important;
 }
 
-.venue {
-  margin-top: 24px;
-  color: var(--accent);
-  font-size: 1.16rem;
-  font-weight: 700;
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+  line-height: 1.9;
 }
 
-.authors {
-  max-width: 930px;
-  margin: 25px auto 0;
-  font-size: 1rem;
-  line-height: 1.85;
+
+/*
+ * Beacon3D uses Bulma's blue (#209cee / hsl(204,86%,53%))
+ * for linked author names.
+ *
+ * Our authors are intentionally not clickable, as requested,
+ * but we keep the same blue visual treatment.
+ */
+.publication-authors:not(.affiliations) .author-block {
+  color: hsl(204, 86%, 53%);
 }
 
-.authors span {
-  white-space: nowrap;
+.author-block {
+  display: inline-block;
+  margin-left: 0.72em;
+  margin-right: 0.05em;
 }
 
-.authors sup,
-.affiliations sup {
-  color: var(--accent);
-  font-size: 0.7em;
-  font-weight: 700;
+.author-block:first-child {
+  margin-left: 0;
 }
+
+.author-block sup {
+  color: #4a4a4a;
+}
+
+
+/* Affiliations in Beacon-like dark gray. */
 
 .affiliations {
-  max-width: 900px;
-  margin: 11px auto 0;
-  color: var(--muted);
-  font-size: 0.8rem;
+  margin-top: 0.55rem;
+  color: #4a4a4a;
+  font-size: 1rem !important;
   line-height: 1.7;
 }
 
+.affiliations .author-block {
+  color: #4a4a4a;
+}
+
 .equal-contribution {
-  margin-top: 8px;
-  color: var(--light-muted);
-  font-size: 0.76rem;
+  font-size: 0.9em;
+  padding: 0.5em 0 0 0;
+  color: #4a4a4a;
 }
 
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 26px;
+
+/* ------------------------------------------------------------
+   LINKS / BUTTONS
+   ------------------------------------------------------------ */
+
+.publication-links {
+  margin-top: 0.25rem;
 }
 
-.paper-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 1px solid var(--button-border);
-  border-radius: 999px;
-  background: var(--button-bg);
-  color: #2c2c2c;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+.link-block a,
+.link-block > span {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-a.paper-button:hover {
-  transform: translateY(-1px);
-  background: #eeeeee;
-  border-color: #cccccc;
+.link-block {
+  display: inline-block;
+  margin: 0 0.12rem;
 }
 
-.paper-button .icon {
-  font-size: 0.92rem;
-}
 
-.paper-button small {
-  margin-left: 1px;
-  color: #9a9a9a;
-  font-size: 0.61rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+/*
+ * Bulma itself provides the exact main styling:
+ *
+ *   .button
+ *   .is-normal
+ *   .is-rounded
+ *   .is-dark
+ *
+ * These small rules only tune disabled-dataset behavior.
+ */
 
-.paper-button.disabled {
+.dataset-disabled {
   cursor: default;
-  opacity: 0.63;
+  opacity: 0.62;
 }
 
-.summary {
-  max-width: 760px;
-  margin: 29px auto 0;
-  color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.65;
+.soon-label {
+  margin-left: 0.5em;
+  font-size: 0.65em;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.summary strong {
-  color: var(--text);
+
+/* ------------------------------------------------------------
+   VIDEO
+   ------------------------------------------------------------ */
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
 }
 
-.section {
-  padding: 58px 0 78px;
-  border-top: 1px solid var(--line);
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+  padding-bottom: 3rem;
 }
 
-.section h2 {
-  margin: 0 0 28px;
-  text-align: center;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.video-container {
+.publication-video {
+  position: relative;
   width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
   overflow: hidden;
-  border-radius: 8px;
-  background: #000000;
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+  border-radius: 10px !important;
+  background: #000;
 }
 
-.video-container video {
-  display: block;
+.local-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  background: #000000;
+  height: 100%;
+
+  object-fit: contain;
+  background: #000;
 }
 
-footer {
-  padding: 28px 0 34px;
-  border-top: 1px solid var(--line);
-  color: var(--light-muted);
-  text-align: center;
-  font-size: 0.78rem;
+
+/* ------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------ */
+
+.footer {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
-footer p {
-  margin: 0;
+.footer-text {
+  color: #4a4a4a;
+  font-size: 0.9rem;
 }
 
-@media (max-width: 700px) {
-  .page {
-    width: min(calc(100% - 24px), var(--page-width));
+.template-credit {
+  margin-top: 0.4rem !important;
+  font-size: 0.82rem;
+}
+
+
+/* ------------------------------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   ------------------------------------------------------------ */
+
+@media screen and (max-width: 768px) {
+
+  .publication-header .hero-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .hero {
-    padding: 49px 0 45px;
+  .publication-title {
+    font-size: 1.7rem !important;
+    line-height: 1.2;
   }
 
-  h1 {
-    font-size: 2.2rem;
+  .publication-venue {
+    font-size: 1.35rem !important;
   }
 
-  h1 span {
-    font-size: 0.62em;
-  }
-
-  .venue {
-    font-size: 1rem;
-  }
-
-  .authors {
-    font-size: 0.9rem;
+  .publication-authors {
+    font-size: 1rem !important;
+    line-height: 1.75;
   }
 
   .affiliations {
-    font-size: 0.72rem;
+    font-size: 0.88rem !important;
   }
 
-  .paper-button {
-    min-height: 40px;
-    padding: 0 13px;
-  }
-
-  .summary {
-    font-size: 0.91rem;
-  }
-
-  .section {
-    padding: 45px 0 56px;
-  }
-
-  .section h2 {
-    font-size: 1.65rem;
+  .author-block {
+    margin-left: 0.35em;
   }
 }
