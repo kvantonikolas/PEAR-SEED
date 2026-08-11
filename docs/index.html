@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
@@ -15,285 +16,562 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Mind the Shape Gap | PEAR & SEED</title>
+  <title>Mind the Shape Gap | PEAR &amp; SEED</title>
 
-  <!-- Same font family setup used by the Beacon3D / Nerfies-style pages. -->
+
+  <!-- Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
     rel="stylesheet"
   >
 
-  <!-- Beacon3D uses Bulma 0.9.1. -->
+
+  <!-- Bulma -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
   >
 
-  <!-- Icons for Paper / Video / Code / Dataset buttons. -->
+
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
   >
 
+
+  <!-- Academicons -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
   >
 
+
+  <!-- Our custom style -->
   <link rel="stylesheet" href="./style.css">
+
 </head>
 
 
 <body>
+
+
+<!-- ============================================================
+     RELATED PROJECTS NAVBAR
+     ============================================================ -->
+
+<nav
+  class="navbar"
+  role="navigation"
+  aria-label="main navigation"
+>
+
+  <!-- Mobile hamburger -->
+  <div class="navbar-brand">
+
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="project-navbar"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+
+  </div>
+
+
+  <!-- Navbar content -->
+  <div
+    id="project-navbar"
+    class="navbar-menu"
+  >
+
+    <div
+      class="navbar-start"
+      style="flex-grow: 1; justify-content: center;"
+    >
+
+      <div class="navbar-item has-dropdown is-hoverable">
+
+        <a class="navbar-link">
+          Related Projects
+        </a>
+
+
+        <div class="navbar-dropdown">
+
+          <a
+            class="navbar-item"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://arxiv.org/abs/2505.24636"
+          >
+            PLANTPose
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
 
 <!-- ============================================================
      PAPER HEADER
      ============================================================ -->
 
 <section class="hero publication-header">
+
   <div class="hero-body">
+
     <div class="container is-max-desktop">
+
       <div class="columns is-centered">
+
         <div class="column has-text-centered">
 
+
+          <!-- PAPER TITLE -->
+
           <h1 class="title is-3 publication-title">
+
             Mind the Shape Gap:
             A Benchmark and Baseline for Deformation-Aware
             6D Pose Estimation of Agricultural Produce
+
           </h1>
 
+
+
+          <!-- CONFERENCE -->
+
           <h2 class="title is-4 publication-venue">
+
             IROS 2026
+
           </h2>
 
 
-          <!-- AUTHORS -->
+
+          <!-- ====================================================
+               AUTHORS
+               ==================================================== -->
+
           <div class="is-size-5 publication-authors">
+
 
             <span class="author-block">
               Nikolas Chatzis<sup>*,1,2,3</sup>
             </span>
 
+
             <span class="author-block">
               Angeliki Tsinouka<sup>*,1,2</sup>
             </span>
+
 
             <span class="author-block">
               Katerina Papadimitriou<sup>1,2,4</sup>
             </span>
 
+
             <span class="author-block">
               Niki Efthymiou<sup>1,2</sup>
             </span>
+
 
             <span class="author-block">
               Marios Glytsos<sup>2,3,5</sup>
             </span>
 
+
             <br>
+
 
             <span class="author-block">
               George Retsinas<sup>2,3</sup>
             </span>
 
+
             <span class="author-block">
               Paris Oikonomou<sup>1,2,3</sup>
             </span>
+
 
             <span class="author-block">
               Gerasimos Potamianos<sup>1,2,4</sup>
             </span>
 
+
             <span class="author-block">
               Petros Maragos<sup>1,2,3</sup>
             </span>
+
 
             <span class="author-block">
               Panagiotis Paraskevas Filntisis<sup>1,2</sup>
             </span>
 
+
           </div>
 
 
-          <!-- AFFILIATIONS -->
+
+          <!-- ====================================================
+               AFFILIATIONS
+               ==================================================== -->
+
           <div class="is-size-5 publication-authors affiliations">
 
+
             <span class="author-block">
-              <sup>1</sup>HERON – Hellenic Robotics Center of Excellence, Athena Research Center, Greece
+
+              <sup>1</sup>
+              HERON – Hellenic Robotics Center of Excellence,
+              Athena Research Center, Greece
+
             </span>
+
 
             <br>
 
+
             <span class="author-block">
-              <sup>2</sup>Institute of Robotics, Athena Research Center, Marousi, Greece
+
+              <sup>2</sup>
+              Institute of Robotics,
+              Athena Research Center,
+              Marousi, Greece
+
             </span>
+
 
             <br>
 
-            <span class="author-block">
-              <sup>3</sup>School of ECE, National Technical University of Athens, Greece
-            </span>
 
             <span class="author-block">
-              <sup>4</sup>Department of ECE, University of Thessaly, Greece
+
+              <sup>3</sup>
+              School of ECE,
+              National Technical University of Athens,
+              Greece
+
             </span>
+
+
+            <span class="author-block">
+
+              <sup>4</sup>
+              Department of ECE,
+              University of Thessaly,
+              Greece
+
+            </span>
+
 
             <br>
 
+
             <span class="author-block">
-              <sup>5</sup>New York University, USA
+
+              <sup>5</sup>
+              New York University,
+              USA
+
             </span>
+
 
           </div>
 
+
+
+          <!-- Equal contribution -->
+
           <p class="equal-contribution">
+
             * Equal contribution
+
           </p>
 
 
-          <!-- LINKS -->
+
+          <!-- ====================================================
+               PROJECT LINKS
+               ==================================================== -->
+
           <div class="column has-text-centered">
+
             <div class="publication-links">
 
+
+
               <!-- Paper -->
+
               <span class="link-block">
+
                 <a
                   href="https://arxiv.org/abs/2603.27429"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="external-link button is-normal is-rounded is-dark"
                 >
+
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>Paper</span>
+
+                  <span>
+                    Paper
+                  </span>
+
                 </a>
+
               </span>
 
 
-              <!-- Video: scrolls to the embedded MP4 below. -->
+
+              <!-- Video -->
+
               <span class="link-block">
+
                 <a
                   href="#video"
                   class="external-link button is-normal is-rounded is-dark"
                 >
+
                   <span class="icon">
                     <i class="fab fa-youtube"></i>
                   </span>
-                  <span>Video</span>
+
+                  <span>
+                    Video
+                  </span>
+
                 </a>
+
               </span>
 
 
+
               <!-- Code -->
+
               <span class="link-block">
+
                 <a
                   href="https://github.com/kvantonikolas/PEAR-SEED"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="external-link button is-normal is-rounded is-dark"
                 >
+
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+
+                  <span>
+                    Code
+                  </span>
+
                 </a>
+
               </span>
 
 
+
               <!-- Dataset -->
+
               <!--
-              WHEN THE HUGGING FACE PAGE IS READY,
-              replace the disabled span below with:
+              WHEN THE HUGGING FACE DATASET IS READY,
+              replace the disabled block below with:
 
               <span class="link-block">
+
                 <a
                   href="YOUR_HUGGING_FACE_DATASET_URL"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="external-link button is-normal is-rounded is-dark"
                 >
+
                   <span class="icon">
                     <i class="fas fa-database"></i>
                   </span>
-                  <span>Dataset</span>
+
+                  <span>
+                    Dataset
+                  </span>
+
                 </a>
+
               </span>
               -->
 
+
               <span class="link-block">
+
                 <span
                   class="button is-normal is-rounded is-dark dataset-disabled"
                   title="Dataset coming soon"
                 >
+
                   <span class="icon">
                     <i class="fas fa-database"></i>
                   </span>
-                  <span>Dataset</span>
-                  <span class="soon-label">soon</span>
+
+                  <span>
+                    Dataset
+                  </span>
+
+                  <span class="soon-label">
+                    soon
+                  </span>
+
                 </span>
+
               </span>
 
+
             </div>
+
           </div>
 
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
 
 
 <!-- ============================================================
      PAPER VIDEO
      ============================================================ -->
 
-<section class="hero teaser" id="video">
+<section
+  class="hero teaser"
+  id="video"
+>
+
   <div class="container is-max-desktop">
 
+
     <div class="columns is-centered has-text-centered">
+
+
       <div class="column is-four-fifths">
 
+
         <div class="local-video">
+
           <video
             src="./assets/video/IROS26_3633_VI_i.mp4"
             controls
             playsinline
-            preload="auto">
+            preload="auto"
+          >
           </video>
+
         </div>
 
+
       </div>
+
+
     </div>
 
+
   </div>
+
 </section>
+
 
 
 <!-- ============================================================
      FUTURE SECTIONS
 
-     Later we can add here, in exactly the same Beacon/Nerfies
-     academic style:
+     We can later add:
 
      - Overview
      - PEAR Benchmark
      - SEED
      - Results
      - BibTeX
+
      ============================================================ -->
 
 
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
 <footer class="footer">
+
   <div class="container">
+
     <div class="content has-text-centered footer-text">
+
       <p>
         PEAR &amp; SEED · IROS 2026
       </p>
 
     </div>
+
   </div>
+
 </footer>
 
+
+
+<!-- ============================================================
+     MOBILE NAVBAR JAVASCRIPT
+     ============================================================ -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const burgers = Array.from(
+    document.querySelectorAll(".navbar-burger")
+  );
+
+
+  burgers.forEach((burger) => {
+
+    burger.addEventListener("click", () => {
+
+      const target = burger.dataset.target;
+
+      const menu = document.getElementById(target);
+
+
+      burger.classList.toggle("is-active");
+
+      menu.classList.toggle("is-active");
+
+    });
+
+  });
+
+});
+
+</script>
+
+
 </body>
+
 </html>
