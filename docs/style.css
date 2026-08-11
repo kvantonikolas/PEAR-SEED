@@ -155,28 +155,19 @@ body {
   padding-bottom: 3rem;
 }
 
-.publication-video {
-  position: relative;
+.local-video {
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
   overflow: hidden;
-  border-radius: 10px !important;
+  border-radius: 10px;
   background: #000;
 }
 
 .local-video video {
-  position: absolute;
-  top: 0;
-  left: 0;
-
+  display: block;
   width: 100%;
-  height: 100%;
-
-  object-fit: contain;
+  height: auto;
   background: #000;
 }
-
 
 /* ------------------------------------------------------------
    FOOTER
