@@ -1,8 +1,7 @@
 /*
  * PEAR & SEED project page
  *
- * Visual language intentionally follows the Beacon3D / Nerfies
- * academic project-page template:
+ * Visual language follows the academic project-page style:
  *   - Noto Sans body
  *   - Google Sans publication title/authors
  *   - Bulma blue accent for authors
@@ -24,18 +23,28 @@ body {
   padding-bottom: 2rem;
 }
 
+
+/*
+ * Make the header wider than Bulma's default "is-max-desktop".
+ * This gives enough horizontal space for 5 authors per row.
+ */
+.publication-header .container.is-max-desktop {
+  max-width: 1400px !important;
+}
+
+
 .publication-title {
   font-family: 'Google Sans', sans-serif;
 
   /*
-   * Beacon3D uses Bulma's title/is-3 sizing.
-   * We keep the same treatment but constrain the width slightly
-   * because our title is long.
+   * Keep the title narrower even though the header itself
+   * is wider for the author rows.
    */
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .publication-venue {
   font-family: 'Google Sans', sans-serif;
@@ -44,6 +53,7 @@ body {
   margin-bottom: 1.25rem !important;
 }
 
+
 .publication-authors {
   font-family: 'Google Sans', sans-serif;
   line-height: 1.9;
@@ -51,15 +61,12 @@ body {
 
 
 /*
- * Beacon3D uses Bulma's blue (#209cee / hsl(204,86%,53%))
- * for linked author names.
- *
- * Our authors are intentionally not clickable, as requested,
- * but we keep the same blue visual treatment.
+ * Blue author names.
  */
 .publication-authors:not(.affiliations) .author-block {
   color: hsl(204, 86%, 53%);
 }
+
 
 .author-block {
   display: inline-block;
@@ -67,16 +74,50 @@ body {
   margin-right: 0.05em;
 }
 
+
 .author-block:first-child {
   margin-left: 0;
 }
+
 
 .author-block sup {
   color: #4a4a4a;
 }
 
 
-/* Affiliations in Beacon-like dark gray. */
+/* ------------------------------------------------------------
+   AUTHOR ROWS
+   ------------------------------------------------------------ */
+
+/*
+ * Each author-row corresponds to one line of five authors.
+ */
+.author-row {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  gap: 1.2rem;
+
+  margin-bottom: 0.2rem;
+
+  white-space: nowrap;
+}
+
+
+/*
+ * We use flex gap above, so remove the old individual
+ * author margins inside these rows.
+ */
+.author-row .author-block {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+/* ------------------------------------------------------------
+   AFFILIATIONS
+   ------------------------------------------------------------ */
 
 .affiliations {
   margin-top: 0.55rem;
@@ -85,9 +126,11 @@ body {
   line-height: 1.7;
 }
 
+
 .affiliations .author-block {
   color: #4a4a4a;
 }
+
 
 .equal-contribution {
   font-size: 0.9em;
@@ -104,11 +147,13 @@ body {
   margin-top: 0.25rem;
 }
 
+
 .link-block a,
 .link-block > span {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 
 .link-block {
   display: inline-block;
@@ -117,20 +162,19 @@ body {
 
 
 /*
- * Bulma itself provides the exact main styling:
+ * Bulma itself provides the main button styling:
  *
  *   .button
  *   .is-normal
  *   .is-rounded
  *   .is-dark
- *
- * These small rules only tune disabled-dataset behavior.
  */
 
 .dataset-disabled {
   cursor: default;
   opacity: 0.62;
 }
+
 
 .soon-label {
   margin-left: 0.5em;
@@ -150,26 +194,35 @@ body {
   padding-bottom: 3rem;
 }
 
+
 .teaser {
   font-family: 'Google Sans', sans-serif;
   padding-bottom: 3rem;
 }
 
+
 .local-video {
   width: 100%;
   aspect-ratio: 16 / 9;
+
   border-radius: 10px;
   overflow: hidden;
+
   background: #000;
 }
 
+
 .local-video video {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
+
   background: #000;
 }
+
 
 /* ------------------------------------------------------------
    FOOTER
@@ -180,19 +233,34 @@ body {
   padding-bottom: 2.5rem;
 }
 
+
 .footer-text {
   color: #4a4a4a;
   font-size: 0.9rem;
 }
 
-.template-credit {
-  margin-top: 0.4rem !important;
-  font-size: 0.82rem;
+
+/* ------------------------------------------------------------
+   MEDIUM-SIZE SCREENS
+   ------------------------------------------------------------ */
+
+/*
+ * On narrower laptops/tablets, five long author names may no
+ * longer fit comfortably. Allow wrapping instead of overflowing.
+ */
+@media screen and (max-width: 1150px) {
+
+  .author-row {
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: 0.25rem 1rem;
+  }
+
 }
 
 
 /* ------------------------------------------------------------
-   RESPONSIVE ADJUSTMENTS
+   MOBILE
    ------------------------------------------------------------ */
 
 @media screen and (max-width: 768px) {
@@ -202,25 +270,54 @@ body {
     padding-right: 1rem;
   }
 
+
   .publication-title {
     font-size: 1.7rem !important;
     line-height: 1.2;
   }
 
+
   .publication-venue {
     font-size: 1.35rem !important;
   }
+
 
   .publication-authors {
     font-size: 1rem !important;
     line-height: 1.75;
   }
 
+
+  /*
+   * Do not force 5+5 on a phone.
+   * Let authors wrap naturally.
+   */
+  .author-row {
+    flex-wrap: wrap;
+    white-space: normal;
+
+    gap: 0.2rem 0.8rem;
+
+    margin-bottom: 0.15rem;
+  }
+
+
+  .author-row .author-block {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
   .affiliations {
     font-size: 0.88rem !important;
   }
 
-  .author-block {
+
+  /*
+   * This continues to apply to affiliation blocks.
+   */
+  .affiliations .author-block {
     margin-left: 0.35em;
   }
+
 }
